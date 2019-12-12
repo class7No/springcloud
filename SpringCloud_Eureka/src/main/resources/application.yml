@@ -1,0 +1,11 @@
+server:
+  port: 6001
+eureka:
+  instance:
+    hostname: localhost # 指定访问地址
+    prefer-ip-address: true # 是否将ip注册到注册中心上 如果为false 则将主机名注册上去
+  client: # 以下指定该服务为 server 而不是client 不需要将自己注册到注册中心
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
